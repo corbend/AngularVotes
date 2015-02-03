@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-info" ng-controller="PollSessionCtrl">
+			<div class="panel-heading">{{sessionQuiz.name}}</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="question in sessionQuiz.questions">
+						<input type="checkbox" ng-model="question.selected" ng-click="onSelect($index)">{{question.text}}
+					</li>
+					<button class="btn btn-primary" ng-click="vote()">
+						Vote
+					</button>
+				</ul>
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-primary" ng-click="cancelSession()">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

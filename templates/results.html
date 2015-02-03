@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-info" ng-controller="PollResultsCtrl">
+			<div class="panel-heading">Результаты опроса: {{observedQuiz.name}}</div>
+			<div class="panel-body">
+				<h1>People vote: {{observedQuiz.polls}}</h1>
+				<ul class="list-group">
+					<template repeat="question in observedQuiz.questions">
+						<li class="list-group-item">
+							<div class="whell">{{question.text}}</div>
+							<div class="progress">
+							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{question.results}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': '{{question.results || 0}}%'}">
+							    {{question.results || 0}}%
+							  </div>
+							</div>
+						</li>
+					</template>
+				</ul>
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-primary" ng-click="cancelSession()">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

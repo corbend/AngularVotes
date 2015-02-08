@@ -1,21 +1,27 @@
 <div class="container" ng-controller="PollListCtrl">
-	<div class="jumbotron" ng-show="!polls.length">
+	<div class="jumbotron">
 		<h1>Welcome to Poll Manager</h1>
 	</div>
 	<div class="row">
 		<ul class="list-group">
 			<li class="list-group-item" ng-repeat="(id, poll) in polls">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="well">{{poll.name}} <span class="badge">{{poll.polls}}</span></div>
-						<div class="label label-success">{{poll.fromDateFormatted}}</div>
-						<div class="label label-warning">{{poll.toDateFormatted}}</div>
-						<div class="label label-danger">{{poll.timeRemainingAll}}</div>
-					</div>
-					<div class="col-md-6 text-right">
-						<button class="btn btn-success" ng-disabled="poll.ended" ng-click="startSession(poll)">New Poll</button>
-						<button class="btn btn-warning" ng-click="editQuiz(poll)">Edit Poll</button>
-						<button class="btn btn-warning" ng-click="removeQuiz(poll.$id)">Remove Poll</button>
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-8">
+							<div class="well">{{poll.name}} <span class="badge">{{poll.polls}}</span></div>
+							<div class="label label-success"> Started: {{poll.fromDateFormatted}}</div>
+							<div class="label label-warning"> End at: {{poll.toDateFormatted}}</div>
+							<div class="label label-danger">
+								<span ng-show="!poll.ended">Remain: </span>
+								<span ng-show="poll.ended">Closed: </span>
+								{{poll.timeRemainingAll}}
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<button class="btn btn-success" ng-disabled="poll.ended" ng-click="startSession(poll)">Take</button>
+							<button class="btn btn-warning" ng-click="editQuiz(poll)">Edit</button>
+							<button class="btn btn-danger" ng-click="removeQuiz(poll.$id)">Remove</button>
+						</div>
 					</div>
 				</div>
 			</li>

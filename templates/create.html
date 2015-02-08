@@ -5,25 +5,25 @@
 			<div class="panel-body container">
 				<form class="col-md-12 form-horizontal">
 					<div class="form-group">
-						<label for="name">Название</label>
+						<label for="name">Name</label>
 						<input class="form-control" id="name" name="name" ng-model="newQuiz.name">
 					</div>
 					<div class="form-group">
-						<label for="tag">Тэг</label>
+						<label for="tag">Tag (description) </label>
 						<input class="form-control" id="tag" name="tag" ng-model="newQuiz.tag">
 					</div>
 					<div class="form-group">
-						<label for="fromDate">Дата начала</label>
+						<label for="fromDate">Date of start</label>
 						<input class="form-control" id="fromDate" name="fromDate" ng-model="newQuiz.fromDate">
 					</div>
 					<div class="form-group">
-						<label for="toDate">Дата конца</label>
+						<label for="toDate">Date of end</label>
 						<input class="form-control"id="toDate" name="toDate" ng-model="newQuiz.toDate">
 					</div>
 				</form>
 				<form class="col-md-12 form-inline well">
 					<div class="form-group">
-						<label for="text">Вопрос</label>
+						<label for="text">Create question</label>
 						<input class="form-control" id="text" name="text" ng-model="newQuestion.text">
 					</div>
 					<button class="btn btn-success" ng-click="addQuestion(newQuestion)">Add</button>
